@@ -1,4 +1,8 @@
 <?php 
+/*
+	Para criar a estrutura do PHP OO foi utilizado:
+	https://krishnaxavier.github.io/creator-oop-structure/
+*/
 class DB{
 	protected $host; 
 	protected $dbname; 

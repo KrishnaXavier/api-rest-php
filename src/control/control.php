@@ -1,6 +1,6 @@
 <?php 
 
-require_once "../model/db.class.php";
+require_once "../model/core.php";
 
 $DB = new DB('localhost', 'super-mercado', 'root', '');
 
