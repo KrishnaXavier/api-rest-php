@@ -1,5 +1,8 @@
 <?php
 
+/* arquivos */
+require_once "model/core.php";
+
 /* config */
 $validURLs = ['produto'];
 
@@ -9,6 +12,7 @@ $validMethods = ['POST', 'GET', 'PUT', 'PATCH', 'DELETE'];
 $response = [];
 
 if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_array($_SERVER['REQUEST_METHOD'], $validMethods) ){
+	
 	$request = [];
 	$request['method'] = $_SERVER['REQUEST_METHOD'];
 	$request['queryString'] = $_SERVER['QUERY_STRING'];
@@ -26,17 +30,29 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 
 	if(isset($request['class']) && isset($request['id'])){
 		$out = [];
-		$out['status'] = true;
+		$out['status'] = true;		
+
+		if($request['class'] == 'produto'){
+
+			if($request['method'] == 'GET'){
+				
+			}
+
+
+		}else{
+			$response["erro"][] = 'class not found';
+		}
 
 		$response['response'] = $out;
 		$response['request'] = $request;
 
 	}else{
+		$response["erro"][] = 'class or id not set';
 		$response['response'] = false;
 	}
 
 }else{	
-	$response["erro"] = true;
+	$response["erro"][] = 'invalid request: method not set or not valid or query string invalid';
 }
 
 echo json_encode( $response );
