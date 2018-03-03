@@ -12,7 +12,8 @@
 
 	<div>
 		Examples: 
-		<div>request('produto/10', 'GET', {})</div>
+		<div>request('produto', 'GET', {})</div>
+		<div>request('produto/2', 'GET', {})</div>
 		<div>request('produto', 'POST', {'nome':'camisa', 'valor':'49,90', 'tipo':'roupa'})</div>	
 		<div>request('produto/5', 'DELETE', {})</div>		
 	</div>
