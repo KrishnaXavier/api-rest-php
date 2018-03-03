@@ -57,6 +57,11 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 				}			
 			}
 
+			/* DELETE */
+			elseif($request['method'] == 'DELETE'){			
+				$out['produto'] = $produto->deleteProduto($request['id']);
+			}
+
 
 		}else{
 			$response["erro"][] = 'class not found';

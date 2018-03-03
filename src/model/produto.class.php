@@ -45,4 +45,12 @@ class Produto extends DB{
 		return $produto;
 
 	}
+
+	public function deleteProduto($id){
+
+		$this->connect();		
+
+		$query = $this->getCon()->query("DELETE FROM produto WHERE id = $id");		
+
+	}
 }
