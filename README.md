@@ -47,8 +47,8 @@ request('produto/1', 'DELETE', {})
 
 ## Material usado
 
-(Para criar a estrutura do PHP OO)[https://krishnaxavier.github.io/creator-oop-structure/]
+[Para criar a estrutura do PHP OO](https://krishnaxavier.github.io/creator-oop-structure/)
 
-(Para auto commit)[https://github.com/KrishnaXavier/auto-commit]
+[Para auto commit](https://github.com/KrishnaXavier/auto-commit)
 
-(Verbos HTTP)[http://www.restapitutorial.com/lessons/httpmethods.html]
+[Verbos HTTP](http://www.restapitutorial.com/lessons/httpmethods.html)
