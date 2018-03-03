@@ -3,4 +3,4 @@ RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 
-RewriteRule ^(.*)$ index.php?url=$1
+RewriteRule ^(.*)$ response.php?$1
