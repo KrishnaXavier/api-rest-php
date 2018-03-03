@@ -10,11 +10,11 @@ class DB{
 	protected $password;
 	private $con;	
 
-	public function __construct($host, $dbname, $user, $password){
-		$this->host = $host;
-		$this->dbname = $dbname;
-		$this->user = $user;
-		$this->password = $password;
+	public function __construct(){
+		$this->host = 'localhost';
+		$this->dbname = 'super-mercado';
+		$this->user = 'root';
+		$this->password = '';
 	}
 
 	public function connect(){

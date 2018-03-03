@@ -35,7 +35,7 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 		/* produto */
 		if($request['class'] == 'produto'){
 
-			$produto = new Produto('localhost', 'super-mercado', 'root', '');
+			$produto = new Produto();
 
 			/* GET */
 			if($request['method'] == 'GET'){
