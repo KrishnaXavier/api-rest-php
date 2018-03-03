@@ -44,3 +44,11 @@ request('produto/1', 'DELETE', {})
 ```
 
 ![DELETE](README/exemplo-delete-produto-id.png)
+
+## Material usado
+
+(Para criar a estrutura do PHP OO)[https://krishnaxavier.github.io/creator-oop-structure/]
+
+(Para auto commit)[https://github.com/KrishnaXavier/auto-commit]
+
+(Verbos HTTP)[http://www.restapitutorial.com/lessons/httpmethods.html]
