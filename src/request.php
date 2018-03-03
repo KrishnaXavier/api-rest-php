@@ -17,15 +17,17 @@
 
 </body>
 <script type="text/javascript">
+	
 	function request(query, method, data){
 		$.ajax({
 			method: method,
 			url: query,
 			data: data
 		})
-		.done(function( msg ) {
-			console.log(msg );
-		});
+		.done(function( response ) {			
+			let resp = JSON.parse(response);			
+			console.log( resp );		
+		});		
 	}
 
 	function testeRequest(){
