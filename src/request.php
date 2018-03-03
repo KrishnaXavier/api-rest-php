@@ -11,8 +11,9 @@
 	</div>
 
 	<div>
-		Example: 
+		Examples: 
 		<div>request('produto/10', 'GET', {})</div>
+		<div>request('produto', 'POST', {'nome':'camisa', 'valor':'49,90', 'tipo':'roupa'})</div>		
 	</div>
 
 </body>

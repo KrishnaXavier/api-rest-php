@@ -46,6 +46,17 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 				}
 			}
 
+			/* POST */
+			elseif($request['method'] == 'POST'){
+				if(isset($_POST['nome']) && isset($_POST['valor']) && isset($_POST['tipo'])){
+
+					$out['produto'] = $produto->createProduto($_POST);
+					
+				}else{
+					$response["erro"][] = 'product creation failed, report all attributes';		
+				}			
+			}
+
 
 		}else{
 			$response["erro"][] = 'class not found';

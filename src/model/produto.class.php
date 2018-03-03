@@ -28,6 +28,21 @@ class Produto extends DB{
 		$return[] = $query->fetch(PDO::FETCH_ASSOC);		
 
 		return json_encode($return);
+	}
+
+	public function createProduto($produto = []){
+
+		$this->connect();		
+
+		$query = $this->getCon()->query("
+			INSERT INTO produto
+				(id, nome, valor, tipo) 
+				VALUES 
+				(NULL, '".$produto['nome']."', '".$produto['valor']."', '".$produto['tipo']."')
+		");	
+
+
+		return $produto;
 
 	}
 }
