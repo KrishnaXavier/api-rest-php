@@ -16,23 +16,31 @@ API REST simples utilizando PHP
 
 ### GET por id
 
-´request('produto/8', 'GET', {})´
+```
+request('produto/8', 'GET', {})
+```
 
 ![GET](README/exemplo-get-produto-id.png)
 
 ### GET all
 
-´request('produto', 'GET', {})´
+```
+request('produto', 'GET', {})
+```
 ![GET](README/exemplo-get-produtos.png)
 
 ### POST
 
-´request('produto', 'POST', {'nome':'camisa', 'valor':'49,90', 'tipo':'roupa'})´
+```
+request('produto', 'POST', {'nome':'camisa', 'valor':'49,90', 'tipo':'roupa'})
+```
 
 ![POST](README/exemplo-post-produto.png)
 
 ### DELETE
 
-´request('produto/1', 'DELETE', {})´
+```
+request('produto/1', 'DELETE', {})
+```
 
 ![DELETE](README/exemplo-delete-produto-id.png)
