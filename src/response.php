@@ -32,10 +32,18 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 		$out = [];
 		$out['status'] = true;		
 
+		/* produto */
 		if($request['class'] == 'produto'){
 
+			$produto = new Produto('localhost', 'super-mercado', 'root', '');
+
+			/* GET */
 			if($request['method'] == 'GET'){
-				
+				if($request['id'] == 'all'){
+					$out['produtos'] = $produto->getProduto();
+				}else{
+					$out['produto'] = $produto->getProdutoById(intval($request['id']));
+				}
 			}
 
 
@@ -55,4 +63,4 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 	$response["erro"][] = 'invalid request: method not set or not valid or query string invalid';
 }
 
-echo json_encode( $response );
+echo json_encode( $response, JSON_UNESCAPED_UNICODE );

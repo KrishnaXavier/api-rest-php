@@ -25,6 +25,7 @@
 			data: data
 		})
 		.done(function( response ) {			
+			//console.log(response);
 			let resp = JSON.parse(response);			
 			console.log( resp );		
 		});		
