@@ -15,22 +15,37 @@
 		<div>request('produto', 'GET', {})</div>
 		<div>request('produto/2', 'GET', {})</div>
 		<div>request('produto', 'POST', {'nome':'camisa', 'valor':'49,90', 'tipo':'roupa'})</div>	
-		<div>request('produto/5', 'DELETE', {})</div>		
+		request('produto', 'POST', {'nome':'camisa classic - 12 - editado', 'valor':'49,90', 'tipo':'roupa', 'acao':'insert'})
+		<div>request('produto/5', 'DELETE', {})</div>
+		<div>request('produto/12', 'PATCH', {'nome':'camisa classic - 12 - editado', 'valor':'49,90', 'tipo':'roupa', 'acao':'update'})</div>		
 	</div>
 
 </body>
 <script type="text/javascript">
-	
+	var varj1;
+	var varj2;
+
 	function request(query, method, data){
+
+		if(method == "PATCH" || method == "PUT"){
+			method = "POST";
+		}
+
+
 		$.ajax({
 			method: method,
 			url: query,
 			data: data
 		})
 		.done(function( response ) {			
+
+			varj1 = response;
+
 			//console.log(response);
 			let resp = JSON.parse(response);			
 			console.log( resp );		
+
+			varj2 = resp;
 		});		
 	}
 

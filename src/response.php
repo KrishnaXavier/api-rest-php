@@ -11,11 +11,14 @@ $validMethods = ['POST', 'GET', 'PUT', 'PATCH', 'DELETE'];
 
 $response = [];
 
+
 if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_array($_SERVER['REQUEST_METHOD'], $validMethods) ){
 	
 	$request = [];
 	$request['method'] = $_SERVER['REQUEST_METHOD'];
 	$request['queryString'] = $_SERVER['QUERY_STRING'];
+	//$request['acao'] = $_POST['acao'];
+	//$request['acao'] = isset($_POST) ? $_POST['acao'] : "DELETE ou GET";
 
 	$query = explode("/", $request['queryString']);
 	foreach ($query as $key => $value) {
@@ -47,7 +50,7 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 			}
 
 			/* POST */
-			elseif($request['method'] == 'POST'){
+			elseif($request['method'] == 'POST' && $_POST['acao'] == 'insert'){
 				if(isset($_POST['nome']) && isset($_POST['valor']) && isset($_POST['tipo'])){
 
 					$out['produto'] = $produto->createProduto($_POST);
@@ -60,6 +63,19 @@ if(isset($_SERVER['REQUEST_METHOD']) && isset($_SERVER['QUERY_STRING']) && in_ar
 			/* DELETE */
 			elseif($request['method'] == 'DELETE'){			
 				$out['produto'] = $produto->deleteProduto($request['id']);
+			}
+
+
+			/* PATCH */
+			elseif($request['method'] == 'POST' && $_POST['acao'] == 'update'){
+				if(isset($_POST['nome']) && isset($_POST['valor']) && isset($_POST['tipo']) && isset($request['id']) ){	
+					$_POST['id'] = $request['id'];
+					$out['produto'] = $produto->updateProduto($_POST);					
+
+				}else{
+					$response["erro"][] = 'product update failed, report all attributes';		
+				}	
+				
 			}
 
 

@@ -48,9 +48,27 @@ class Produto extends DB{
 
 	public function deleteProduto($id){
 
-		$this->connect();		
+		$this->connect();
 
 		$query = $this->getCon()->query("DELETE FROM produto WHERE id = $id");		
 
+	}
+
+	public function updateProduto($args){
+
+		$this->connect();
+
+		$query1 = "
+			UPDATE produto 
+			SET 
+				nome = '{$args['nome']}', 
+				valor = '{$args['valor']}', 
+				tipo = '{$args['tipo']}' 
+			WHERE produto.id = {$args['id']};
+		";
+
+		$query = $this->getCon()->query($query1);
+
+		return ["status-query" => $query, "query" => $query1];	
 	}
 }
